@@ -1255,11 +1255,9 @@ static NSImage *_brImage;
 					
 					cmd = [NSString stringWithFormat:
 						   @"tell application \"iTerm\"\n"
-						   @"	activate\n"
-						   @"	set myterm to (make new terminal)\n"
-						   @"	tell myterm\n"
-						   @"		launch session \"Default Session\"\n"
-						   @"		tell the last session\n"
+						   @"	set newWindow to (create window with default profile)\n"
+						   @"	tell newWindow\n"
+						   @"		tell current session\n"
 						   @"			write text \"%@\"\n"
 						   @"		end tell\n"
 						   @"	end tell\n"
